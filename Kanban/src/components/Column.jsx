@@ -2,6 +2,8 @@ import React from 'react';
 import { Droppable } from 'react-beautiful-dnd';
 import styled from 'styled-components';
 import "./scroll.css";
+import Task from './Task'
+
 
 const Container = styled.div`
     background-color: #f4f5f7;
@@ -38,18 +40,19 @@ export default function Column({ title, tasks, id }) {
         </Title>
 
         <Droppable droppableId={id}>
-            {(provided, snapshot) => {
-                <TaskList
-                    ref={provided.innerRef}
-                    {...provided.droppableProps}
-                    isDraggingOver={snapshot.isDraggingOver}
-                    >
-                        {/* Provede Your tasks */}
-                        {provided.placeholder}
-                    </TaskList>;
-            }}
+    {(provided, snapshot) => (
+        <TaskList
+            ref={provided.innerRef}
+            {...provided.droppableProps}
+            isDraggingOver={snapshot.isDraggingOver}
+        >
+            {/* Provide your tasks */}
+            <Task task={{id:123, title:"Make a progress board application"}} index={0} />
+            {provided.placeholder}
+        </TaskList>
+    )}
+</Droppable>
 
-        </Droppable>
 
 
     </Container>
