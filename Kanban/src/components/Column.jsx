@@ -1,6 +1,7 @@
 import React from 'react';
 import { Droppable } from 'react-beautiful-dnd';
 import styled from 'styled-components';
+import "./scroll.css";
 
 const Container = styled.div`
     background-color: #f4f5f7;
@@ -29,7 +30,7 @@ const TaskList = styled.div`
 `
 export default function Column({ title, tasks, id }) {
   return (
-    <Container>
+    <Container className='column'>
         <Title style={{ backgroundColor: 'lightblue', position: 'stick'}}>
 
         {title}
