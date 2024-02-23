@@ -14,6 +14,8 @@ export default function KanbanBoard(){
 
 
             </div>
+
+            
         </DragDropContext>
     )
 }
