@@ -10,6 +10,10 @@ export default function KanbanBoard(){
         <DragDropContext>
             <h2 style={{ textAlign: "center"}}>PROGRESS BOARD</h2>
 
+            <div style={{display: 'flex', justifyContent: 'space-between', alignContent: 'center', flexDirection:'row'}}>
+
+
+            </div>
         </DragDropContext>
     )
 }
