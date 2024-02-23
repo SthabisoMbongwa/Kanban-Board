@@ -13,8 +13,44 @@ const Container = styled.div`
     border: 1px solid gray;
 `;
 
-export default function Column() {
+
+const Title = styled.h3`
+    padding: 8px,
+    background-color: pink;
+    text-align: center;
+`;
+
+const TaskList = styled.div`
+    padding: 3px;
+    transition: background-color 0.2s ease;
+    background-color: #f4f5f7;
+    flex-grow: 1;
+    min-height: 100px;
+`
+export default function Column({ title, tasks, id }) {
   return (
-    <div>Column</div>
-  )
+    <Container>
+        <Title style={{ backgroundColor: 'lightblue', position: 'stick'}}>
+
+        {title}
+
+        </Title>
+
+        <Droppable droppableId={id}>
+            {(provided, snapshot) => {
+                <TaskList
+                    ref={provided.innerRef}
+                    {...provided.droppableProps}
+                    isDraggingOver={snapshot.isDraggingOver}
+                    >
+                        {/* Provede Your tasks */}
+                        {provided.placeholder}
+                    </TaskList>;
+            }}
+
+        </Droppable>
+
+
+    </Container>
+  );
 }
