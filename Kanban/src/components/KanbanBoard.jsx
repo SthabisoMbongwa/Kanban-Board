@@ -33,7 +33,15 @@ export default function KanbanBoard(){
         const task = findItemById(draggableId, [...incomplete, ...completed]);
 
         //Add item
+
+        if (destination.droppableId == 2){
+            setCompleted([{ ...task, completed: !task.completed }, ...completed]);
+        } else {
+            setCompleted([{ ...task, completed: !task.completed }, ...incomplete]);
+        }
     };
+
+
 
     function findItemById(id, array){
         return array.find((item) => item.id == id);
@@ -52,6 +60,11 @@ export default function KanbanBoard(){
             <div style={{display: 'flex', justifyContent: 'space-between', alignContent: 'center', flexDirection:'row'}}>
 
                 <Column title={"TO DO"} tasks={incomplete} id={'1'} />
+                <Column title={"DONE"} tasks={completed} id={'2'} />
+                <Column title={"BACKLOG"} tasks={[]} id={'3'} />
+
+
+                
                 {/* <Column title={"Inprogress"} tasks={inprogress} id={'3'} /> */}
 
             </div>
