@@ -69,7 +69,7 @@ export default function KanbanBoard(){
 
                 <Column title={"TO DO"} tasks={incomplete} id={'1'} />
                 <Column title={"DONE"} tasks={completed} id={'2'} />
-                <Column title={"BACKLOG"} tasks={[]} id={'3'} />
+                <Column title={"BACKLOG"} tasks={backlog} id={'3'} />
 
 
                 
