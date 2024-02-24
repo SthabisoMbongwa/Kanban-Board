@@ -6,6 +6,8 @@ import Column from './Column';
 export default function KanbanBoard(){
     const [completed, setCompleted] = useState([]);
     const [incomplete, setIncomplete] = useState([]);
+    const [backlog, setBacklog] = useState([]);
+
     // const [inprogress, setInprogress] = useState([]);
     useEffect(() => {
         fetch('https://jsonplaceholder.typicode.com/todos')

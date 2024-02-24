@@ -47,7 +47,9 @@ export default function Column({ title, tasks, id }) {
             isDraggingOver={snapshot.isDraggingOver}
         >
             {/* Provide your tasks */}
-            <Task task={{id:123, title:"Make a progress board application"}} index={0} />
+           {
+            tasks.map((task, index) => ( <Task key={index} index={index} task={task} />))
+            }
             {provided.placeholder}
         </TaskList>
     )}

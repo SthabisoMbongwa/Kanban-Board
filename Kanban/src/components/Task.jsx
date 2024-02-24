@@ -38,7 +38,7 @@ function bgcolorChange(props) {
                 : "#EAF4FC";
 }
 
-export default function Card({ task, index }) {
+export default function Task({ task, index }) {
     return (
         <Draggable draggableId={`${task.id}`} key={task.id} index={index}>
             {(provided, snapshot) => (
