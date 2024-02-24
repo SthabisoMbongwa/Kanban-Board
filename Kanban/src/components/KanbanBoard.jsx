@@ -20,7 +20,10 @@ export default function KanbanBoard(){
     
     const handleDragEnd = (result) => {
         const {destination, source, draggableId} = result;
-
+        
+        // Return early if the item is dropped outside the columns
+        if (!destination) return;
+     
         if (source.droppableId == destination.droppableId) return;
 
         //Remove from source array
