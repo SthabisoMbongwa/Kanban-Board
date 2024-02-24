@@ -12,9 +12,10 @@ export default function KanbanBoard(){
     useEffect(() => {
         fetch('https://jsonplaceholder.typicode.com/todos')
         .then(response => response.json())
-        .then(json => console.log(json))
+        .then(json => {
             setCompleted(json.filter((task) => task.completed));
             setIncomplete(json.filter((task) => !task.completed));
+        });
     }, []);
     
     const handleDragEnd = (result) => {
