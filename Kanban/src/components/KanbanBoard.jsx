@@ -37,14 +37,15 @@ export default function KanbanBoard(){
 
         //Get item
 
-        const task = findItemById(draggableId, [...incomplete, ...completed]);
+        const task = findItemById(draggableId, [...incomplete, ...completed, ...backlog]);
 
-        //Add item
-
-        if (destination.droppableId == 2){
-            setCompleted([{ ...task, completed: !task.completed }, ...completed]);
-        } else {
-            setCompleted([{ ...task, completed: !task.completed }, ...incomplete]);
+        // Add item to destination
+        if (destination.droppableId === '1') {
+            setIncomplete([...incomplete, task]);
+        } else if (destination.droppableId === '2') {
+            setCompleted([...completed, task]);
+        } else if (destination.droppableId === '3') {
+            setBacklog([...backlog, task]);
         }
     };
 
