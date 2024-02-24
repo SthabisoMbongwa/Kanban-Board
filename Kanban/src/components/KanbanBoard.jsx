@@ -26,12 +26,13 @@ export default function KanbanBoard(){
      
         if (source.droppableId == destination.droppableId) return;
 
-        //Remove from source array
-
-        if (source.droppableId == 2) {
-            setCompleted(removeItemById(draggableId, completed));
-        } else {
+        // Remove from source array
+        if (source.droppableId === '1') {
             setIncomplete(removeItemById(draggableId, incomplete));
+        } else if (source.droppableId === '2') {
+            setCompleted(removeItemById(draggableId, completed));
+        } else if (source.droppableId === '3') {
+            setBacklog(removeItemById(draggableId, backlog));
         }
 
         //Get item
